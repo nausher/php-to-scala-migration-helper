@@ -1,0 +1,32 @@
+#summary Release Notes for the PHP-to-Scala Migration Helper
+#labels Featured,Phase-Implementation
+
+= Introduction =
+
+Yes, it works!
+
+==New Features in v0.2==
+ * Begun integration with the Quercus run-time (full PHP library implementation in Java)
+ * Right now everything compiles fine but only test_0.php (Hello World) runs successfully
+ * Successful compilation of test_1.scala!!! It still doesn't run, as the Quercus integration is unfinished
+ * The conversion of constructors now is nice and clean, although not "idiomatic Scala"
+ * Renamed php.value to '$', to identify generic PHP variables.
+ * Primitive type-inference (everything is a '$', but at least it is declared)
+ * Implemented implicit conversions in php.scala
+ * Improved type inference - variables assigned to an integer are declared var:Int
+
+==Features implemented in v0.1==
+ * Use the built-in PHP tokenizer for correctness (should handle complex scripts)
+ * Recursive "look-ahead" parser avoids an AST, this helps preserve code structure.
+ * Breaking up of for(;;) loops into scala while() loops is working.
+ * Use correct syntax for function declaration (including no '=' for non-returning)
+ * Removal of dollar signs from all variables
+ * Change of array index square brackets to parens.
+ * Change of object operator -> to '.'
+ * Inline HTML for now just invokes an "output" function with triple-quoted string.
+ * Correct handling of command-syntax (e.g. print) by adding parenthesis.
+ * File scope becomes an object scope; this should help a later "aliasing" scheme.
+
+==TODO ITEMS==
+ * The Quercus run-time needs to be integrated. See mklib.sh, phplib.java, and php.scala for work already done.
+ * Simple type inference based on function type-hints.
