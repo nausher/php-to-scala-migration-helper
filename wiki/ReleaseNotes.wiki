@@ -3,7 +3,11 @@
 
 = Introduction =
 
-Yes, it works!
+Basically, the Hello World test works right now; a more complex test (computation of digits of PI - from the Computer Benchmarks Game) converts from PHP to Scala correctly in terms of syntax, but the run-time is still buggy so it crashes with an Exception.
+
+==New Features in v0.3 (2010-04-18 download)==
+ * The Quercus run-time has been integrated, i.e. initialized and functions with the proper signatures are available to subclasses of php.script
+ * Simplified the syntax (eg. use call() and function() instead of apply() and ->() for now) to try to debug issues with the php.scala run-time
 
 ==New Features in v0.2==
  * Begun integration with the Quercus run-time (full PHP library implementation in Java)
