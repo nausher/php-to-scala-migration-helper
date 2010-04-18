@@ -32,5 +32,5 @@ Basically, the Hello World test works right now; a more complex test (computatio
  * File scope becomes an object scope; this should help a later "aliasing" scheme.
 
 ==TODO ITEMS==
- * The Quercus run-time needs to be integrated. See mklib.sh, phplib.java, and php.scala for work already done.
- * Simple type inference based on function type-hints.
+ * The run-time is buggy
+ * Simple type inference based on function type-hints is going to be a nice add-on
