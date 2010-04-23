@@ -3,7 +3,7 @@
 
 = Introduction =
 
-Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code! The primary goal of producing clean, readable Scala code has been met. The secondary goal of PHP compatibility remains surprisingly intact (using reflection to dynamically resolve objects makes it possible to support "duck-typing" and untyped references). The tertiary goal of high performance is all but unmet at this point.
+Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code! The primary goal of producing clean, readable Scala code has been met.  The secondary  goal of high performance is all but unmet at this point (the resulting Scala code is clean, but slow). The tertiary goal of PHP compatibility remains surprisingly intact (using reflection to dynamically resolve objects makes it possible to support "duck-typing" and untyped references).
 
 ==Features planned for future releases==
  * Pretty-print (auto-indent) the Scala output
