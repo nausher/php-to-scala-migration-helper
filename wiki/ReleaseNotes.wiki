@@ -18,9 +18,8 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Finished up the basic run-time "php-like" types ($int, $str, $obj, $val, and $null)
  * Finished up the basic integration with Quercus.
  * Introduced "idiomatic" dynamic resolution operators ~> for variables and ~& for functions (note that "~>" had to be chosen over "->" due to Scala's operator precedence rules)
- * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds
- * Use static binding ("." instead of "~>") for references to _this_
- * Speed improvement from static binding was negligible - reflection is pretty fast! 
+ * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds. Yes it is surprisingly slow, but absolutely no attempt has been made so far to investigate the reason for the slowness.
+ * Use static binding ("." instead of "~>") for references to _this_. This is more aesthetically pleasing but actually provided no speed gain - reflection is pretty fast! 
  * String variable interpolation syntax is working too now
 
 ==New Features in v0.3 (2010-04-18)==
