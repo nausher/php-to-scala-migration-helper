@@ -3,10 +3,28 @@
 
 = Introduction =
 
-Basically, the Hello World test works right now; a more complex test (computation of digits of PI - from the Computer Benchmarks Game) converts from PHP to Scala correctly in terms of syntax, but the run-time is still buggy so it crashes with an Exception.
+Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code!
 
-==New Features in v0.3 (2010-04-18 download)==
- * The Quercus run-time has been integrated, i.e. initialized and functions with the proper signatures are available to subclasses of php.script
+==Features planned for future releases==
+ * Pretty-print (auto-indent) the Scala output
+ * Performance improvements
+ * Support for function type-hints - that should also help performance
+ * Type-inference based on global static analysis
+ * Complete integration with Quercus - still missing I/O, ob_handler, eval(), etc.
+ * Clean-up the "$" types with well thought-out behaviors; currently it's a bit ad-hoc.
+
+==New Features in v0.4 (2010-04-22) ==
+ * Success! This is the first release where the PI Digit Generator (test_1) works!
+ * Finished up the basic run-time "php-like" types ($int, $str, $obj, $val, and $null)
+ * Finished up the basic integration with Quercus.
+ * Introduced "idiomatic" dynamic resolution operators ~> for variables and ~& for functions (note that "~>" had to be chosen over "->" due to Scala's operator precedence rules)
+ * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds
+ * Use static binding ("." instead of "~>") for references to _this_
+ * Speed improvement from static binding was negligible - reflection is pretty fast! 
+ * String variable interpolation syntax is working too now
+
+==New Features in v0.3 (2010-04-18)==
+ * Additional Quercus run-time has been integrated, i.e. it is initialized and some functions with the proper signatures are available to subclasses of php.script
  * Simplified the syntax (eg. use call() and function() instead of apply() and ->() for now) to try to debug issues with the php.scala run-time
 
 ==New Features in v0.2==
@@ -30,7 +48,3 @@ Basically, the Hello World test works right now; a more complex test (computatio
  * Inline HTML for now just invokes an "output" function with triple-quoted string.
  * Correct handling of command-syntax (e.g. print) by adding parenthesis.
  * File scope becomes an object scope; this should help a later "aliasing" scheme.
-
-==TODO ITEMS==
- * The run-time is buggy
- * Simple type inference based on function type-hints is going to be a nice add-on
