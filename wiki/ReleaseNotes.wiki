@@ -24,8 +24,7 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * String variable interpolation syntax is working too now
 
 ==New Features in v0.3 (2010-04-18)==
- * Additional Quercus run-time has been integrated, i.e. it is initialized and some functions with the proper signatures are available to subclasses of php.script
- * Simplified the syntax (eg. use call() and function() instead of apply() and ->() for now) to try to debug issues with the php.scala run-time
+ * This was a rather buggy interim release. Nothing works.
 
 ==New Features in v0.2==
  * Begun integration with the Quercus run-time (full PHP library implementation in Java)
