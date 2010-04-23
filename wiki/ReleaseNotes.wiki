@@ -13,7 +13,7 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Complete integration with Quercus - still missing I/O, ob_handler, eval(), etc.
  * Clean-up the "$" types with well thought-out behaviors; currently it's a bit ad-hoc.
 
-==New Features in v0.4 (2010-04-22) ==
+==New Features in v0.4 (2010-04-22)==
  * Success! This is the first release where the PI Digit Generator (test_1) works!
  * *This qualifies as an "Alpha" release! It is sufficiently functional now to encourage volunteers to try it out and contribute their own improvements :)*
  * Finished up the basic integration with Quercus. A total of 1,054 (over one thousand) standard PHP functions are now integrated and available for use. What remains now are the functions that could not be handled by the automatic build script due to unusual signatures, duplicate names, etc and had to be manually excluded (see mklib.sh).
@@ -26,7 +26,7 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
 ==New Features in v0.3 (2010-04-18)==
  * This was a rather buggy interim release. Nothing works.
 
-==New Features in v0.2==
+==New Features in v0.2 (2010-04-16)==
  * Begun integration with the Quercus run-time (full PHP library implementation in Java)
  * Right now everything compiles fine but only test_0.php (Hello World) runs successfully
  * Successful compilation of test_1.scala!!! It still doesn't run, as the Quercus integration is unfinished
@@ -36,7 +36,7 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Implemented implicit conversions in php.scala
  * Improved type inference - variables assigned to an integer are declared var:Int
 
-==Features implemented in v0.1==
+==Features implemented in v0.1 (2010-04-12)==
  * Use the built-in PHP tokenizer for correctness (should handle complex scripts)
  * Recursive "look-ahead" parser avoids an AST, this helps preserve code structure.
  * Breaking up of for(;;) loops into scala while() loops is working.
