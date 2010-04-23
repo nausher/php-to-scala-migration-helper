@@ -12,6 +12,7 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Type-inference based on global static analysis
  * Complete integration with Quercus - still missing I/O, ob_handler, eval(), etc.
  * Clean-up the "$" types with well thought-out behaviors; currently it's a bit ad-hoc.
+ * *This is hopefully sufficiently functional now to encourage volunteers to try it out and contribute their own improvements :)*
 
 ==New Features in v0.4 (2010-04-22) ==
  * Success! This is the first release where the PI Digit Generator (test_1) works!
