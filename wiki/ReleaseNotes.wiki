@@ -16,8 +16,8 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
 ==New Features in v0.4 (2010-04-22) ==
  * Success! This is the first release where the PI Digit Generator (test_1) works!
  * *This qualifies as an "Alpha" release! It is sufficiently functional now to encourage volunteers to try it out and contribute their own improvements :)*
- * Finished up the basic run-time "php-like" types ($int, $str, $obj, $val, and $null)
  * Finished up the basic integration with Quercus. A total of 1,054 (over one thousand) standard PHP functions are now integrated and available for use. What remains now are the functions that could not be handled by the automatic build script due to unusual signatures, duplicate names, etc and had to be manually excluded (see mklib.sh).
+ * Finished up the basic Scala-friendly "php-like" types ($int, $str, $obj, $val, and $null) which provide implicit conversions and other syntactic niceties that keep the generated Scala code free of clutter.
  * Introduced "idiomatic" dynamic resolution operators ~> for variables and ~& for functions (note that "~>" had to be chosen over "->" due to Scala's operator precedence rules)
  * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds. Yes it is surprisingly slow, but absolutely no attempt has been made so far to investigate the reason for the slowness.
  * Use static binding ("." instead of "~>") for references to _this_. This is more aesthetically pleasing but actually provided no speed gain - reflection is pretty fast! 
