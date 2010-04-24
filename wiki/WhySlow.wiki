@@ -1,0 +1,27 @@
+#labels Featured,Phase-Support
+# php-to-scala performance testing results, optimizations, and other details
+
+= Introduction =
+
+The first benchmark test performed on 4/22/2010 produced a surprising result:
+ * test_1.php runs in 0.7 seconds
+ * test_1.scala in 16 seconds
+
+Both were run using a "200" parameter for the number of PI Digits.
+
+These results were surprising. Then I ran the test with -Xprof, and the result of that was even MORE surprising!
+
+= Surprise: The Scala code is actually FAST =
+
+But Java's BigInteger library is mind-bogglingly slow. And due to dumb luck, the first arbitrarily selected performance test (PI Digits) is very bigmath-intensive.
+
+These are the results from -Xprof (with -server and 300 digits):
+ * 63.8% of the run time is spent in java.math.MutableBigInteger.divide
+ * 24.6% is spent on other Big Math library functions, for a total of 88.4% of the run time
+ * The JIT does not compile java.math.BigInteger.toString until it's been invoked 171 times
+ * Reflection is not a significant source of overhead (less than 0.1% of time)
+ * Only about 3% of time is spent on "wasteful" conversions among strings and php types
+ * Due to the relative short run, another 3% or so is spent on class-loading.
+ * That leaves about 5% of time to "other stuff".
+
+The bottomline: It should be reasonable to expect other benchmarks will be significantly faster - potentially 20x to 50x faster, making php-to-scala generated Scala code at least as fast as PHP, and possibly 2x to 3x faster.
