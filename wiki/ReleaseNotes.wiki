@@ -3,12 +3,12 @@
 
 = Introduction =
 
-Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code! The primary goal of producing clean, readable Scala code has been met.  The secondary  goal of high performance is all but unmet at this point (the resulting Scala code is clean, but slow). The tertiary goal of PHP compatibility remains surprisingly intact (using reflection to dynamically resolve objects makes it possible to support "duck-typing" and untyped references).
+Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code! The primary goal of producing clean, readable Scala code has been met.  The secondary goal of high performance is currently held up by a surprising problem in our benchmark (see WhySlow for details). The tertiary goal of PHP compatibility remains surprisingly intact (using reflection to dynamically resolve objects makes it possible to support "duck-typing" and untyped references).
 
 ==Features planned for future releases==
  * Pretty-print (auto-indent) the Scala output
  * Performance improvements
- * Support for function type-hints - that should also help performance
+ * Type-inference based on function type-hints
  * Type-inference based on global static analysis
  * Complete integration with Quercus - still missing I/O, ob_handler, eval(), etc
  * Clean-up the "$" types with well thought-out behaviors; currently it's a bit ad-hoc
@@ -21,8 +21,8 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Finished up the basic integration with Quercus. A total of 1,054 (over one thousand) standard PHP functions are now integrated and available for use. What remains now are the functions that could not be handled by the automatic build script due to unusual signatures, duplicate names, etc and had to be manually excluded (see mklib.sh).
  * Finished up the basic Scala-friendly "php-like" types ($int, $str, $obj, $val, and $null) which provide implicit conversions and other syntactic niceties that keep the generated Scala code free of clutter.
  * Introduced "idiomatic" dynamic resolution operators ~> for variables and ~& for functions (note that "~>" had to be chosen over "->" due to Scala's operator precedence rules)
- * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds. Yes it is surprisingly slow, but absolutely no attempt has been made so far to investigate the reason for the slowness.
- * Use static binding ("." instead of "~>") for references to _this_. This is more aesthetically pleasing but actually provided no speed gain - reflection is pretty fast! 
+ * First benchmark: test_1.php 200 runs in 0.7 seconds; test_1.scala in 16 seconds. Yes it is surprisingly slow - and the cause for slowness is even more surprising! See WhySlow.
+ * Use static binding ("." instead of "~>") for references to _this_. That's more aesthetically pleasing but actually provided no speed gain - reflection is pretty fast! 
  * String variable interpolation syntax is working too now
 
 ==New Features in v0.3 (2010-04-18)==
