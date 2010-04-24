@@ -13,7 +13,7 @@ These results were surprising. Then I ran the test with -Xprof, and the result o
 
 = Surprise: The Scala code is actually FAST =
 
-But Java's BigInteger library is mind-bogglingly slow. And due to dumb luck, the first arbitrarily selected performance test (PI Digits) is very bigmath-intensive.
+But Java's BigInteger library is mind-bogglingly slow. And due to dumb luck, the first arbitrarily selected performance test (PI Digits) is very bigmath-intensive. Apparently was not the first to [http://stackoverflow.com/questions/611732/what-to-do-with-java-bigdecimal-performance discover this].
 
 These are the results from -Xprof (with -server and 300 digits):
  * 63.8% of the run time is spent in java.math.MutableBigInteger.divide
