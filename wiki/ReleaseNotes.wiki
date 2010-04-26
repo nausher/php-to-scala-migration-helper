@@ -15,6 +15,15 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Still need an overall strategy and details for dealing with "large" applications (multiple PHP scripts, such as in a web app).
  * Port the build/test scripts (mklib.sh, runtests.sh) to Scala so they can run on Windows
 
+== Upcoming features in v0.5 ==
+ * Ternary operator ?:
+ * Fuller support for arrays, including type inference, foreach(...as...){} and constructors
+ * Automatic renaming of variables that clash with Scala reserved words
+ * New testcase (test_2, a roman numeral generator)
+ * New operator := for assignment in while loop condition
+ * Specific patches for str_replace, isset.
+ * String concatenation operators +& and +=& (like PHP's . and .= )
+
 ==New Features in v0.4 (2010-04-22)==
  * Success! This is the first release where the PI Digit Generator (test_1) works!
  * *This qualifies as an "Alpha" release! It is sufficiently functional now to encourage volunteers to try it out and contribute their own improvements :)*
