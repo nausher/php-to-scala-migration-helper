@@ -16,9 +16,9 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Port the build/test scripts (mklib.sh, runtests.sh) to Scala so they can run on Windows
 
 == Upcoming features in v0.5 ==
- * Ternary operator ?:
+ * Ternary operator (?:) converts to |?
  * Fuller support for arrays, including type inference, foreach(...as...){} and constructors
- * Automatic renaming of variables that clash with Scala reserved words
+ * Reintroduced '$' in variable names, to avoid namespace pollution (and clash with reserved words)
  * New testcase (test_2, a roman numeral generator)
  * New operator := for assignment in while loop condition
  * Specific patches for str_replace, isset.
