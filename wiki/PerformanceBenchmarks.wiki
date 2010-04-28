@@ -1,7 +1,12 @@
 #labels Featured,Phase-QA
 # php-to-scala performance testing results, optimizations, and other details
 
-= Introduction =
+= Second Benchmark: Roman Number Generator =
+
+ * When run with parms [100 100]... The scala version is 3.2x slower than the PHP.
+ * 34% of time is spent in php.script.stringToPhp
+
+= First Benchmark: PI Digit Generator =
 
 The first benchmark test performed on 4/22/2010 produced a surprising result:
  * test_1.php runs in 0.7 seconds
