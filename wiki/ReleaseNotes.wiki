@@ -18,7 +18,7 @@ The primary goal of producing clean, readable Scala code has been met.  The seco
  * Port the build/test scripts (mklib.sh, runtests.sh) to Scala so they can run on Windows
 
 ==New Features in v0.6 (2010-04-28)==
- * This was a performance-focused release. The roman number generator (test_2) is now 3.4x FASTER in the generated Scala versus the original PHP. 
+ * This was a performance-focused release. The roman number generator (test_2) is now 3.4x FASTER in the generated Scala versus the original PHP. That is based on the straight output of the source converter, without any optimizations such as replacing the dynamically-typed variables with Ints or Strings. With the latter, performance would probably another 2x faster at least.
 
 ==New Features in v0.5 (2010-04-27)==
  * Ternary operator (?:) converts to |?
