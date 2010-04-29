@@ -6,7 +6,9 @@
  * When run with parms [100 100]... The scala version is 3.2x slower than the PHP.
  * 34% of time is spent in php.script.stringToPhp
 
-= First Benchmark: PI Digit Generator =
+= Test 1 (slow): PI Digit Generator =
+
+== First Benchmark: PI Digit Generator ==
 
 The first benchmark test performed on 4/22/2010 produced a surprising result:
  * test_1.php runs in 0.7 seconds
@@ -16,7 +18,7 @@ Both were run using a "200" parameter for the number of PI Digits.
 
 These results were surprising. Then I ran the test with -Xprof, and the result of that was even MORE surprising!
 
-= Surprise: The Scala code is actually FAST =
+== Surprise: The Scala code is actually fast! The Java libraries are slow. ==
 
 But Java's BigInteger library is mind-bogglingly slow. And due to dumb luck, the first arbitrarily selected performance test (PI Digits) is very bigmath-intensive. Apparently was not the first to [http://stackoverflow.com/questions/611732/what-to-do-with-java-bigdecimal-performance discover this].
 
