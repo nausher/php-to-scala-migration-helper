@@ -5,22 +5,28 @@
 
  * Parameters used: 5000 100 (5,000 repetitions of 100 roman numerals)
  * PHP time: 55 seconds
- * Scala time: 51 seconds!!
+ * Scala time: 16 seconds!! - 3.4x faster than original PHP script.
 
 Scala time distribution:
 {{{
-     [java]  78.4%     9  +  1704    php.script.stringToPhp
-     [java]   2.2%    48  +     0    com.caucho.quercus.env.LargeStringBuilderValue.append
-     [java]   2.1%    15  +    30    test_2_php$$anonfun$dec2roman$1$2.apply
-     [java]   1.9%    31  +    10    com.caucho.quercus.env.ArrayValueImpl.createEntry
-     [java]   1.1%     4  +    19    php.array.foreach
-     [java]   1.1%    14  +     9    test_2_php$.dec2roman$1
+     [java]      Compiled + native   Method                        
+     [java]  16.5%    48  +    72    test_2_php$$anonfun$dec2roman$1$2.apply
+     [java]   9.1%    26  +    40    test_2_php$.dec2roman$1
+     [java]   6.4%    13  +    34    php.string.value
+     [java]   6.3%     8  +    38    test_2_php$$anonfun$dec2roman$1$1.apply
+     [java]   6.0%    19  +    25    com.caucho.quercus.env.ArrayValueImpl.createEntry
+     [java]   5.3%    12  +    27    php.script$phpArrowAssoc.$minus$greater
+     [java]   4.5%    19  +    14    php.array$$anonfun$map$1.apply
+     [java]   4.1%     0  +    30    com.caucho.quercus.env.StringBuilderValue.toString
+     [java]   3.2%     0  +    23    java.lang.StringBuffer.toString
 }}}
 
 
 = Benchmark #1 (slow): PI Digit Generator =
 
 == Initial Results ==
+
+The first test was probably biased by not accounting for JVM start-up time.
 
 The first benchmark test performed on 4/22/2010 produced a surprising result:
  * test_1.php runs in 0.7 seconds
