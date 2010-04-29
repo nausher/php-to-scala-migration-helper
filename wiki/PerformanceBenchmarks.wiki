@@ -1,7 +1,7 @@
 #labels Featured,Phase-QA
 # php-to-scala performance testing results, optimizations, and other details
 
-= Benchmark 2: Roman Number Generator =
+= Benchmark #2: Roman Number Generator =
 
  * Parameters used: 5000 100 (5,000 repetitions of 100 roman numerals)
  * PHP time: 55 seconds
@@ -18,9 +18,9 @@ Scala time distribution:
 }}}
 
 
-= Test 1 (slow): PI Digit Generator =
+= Benchmark #1 (slow): PI Digit Generator =
 
-== Benchmark 1: PI Digit Generator ==
+== Initial Results ==
 
 The first benchmark test performed on 4/22/2010 produced a surprising result:
  * test_1.php runs in 0.7 seconds
