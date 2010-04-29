@@ -7,6 +7,7 @@
  * PHP time: 55 seconds
  * Scala time: 51 seconds!!
 
+Scala time distribution:
 {{{
      [java]  78.4%     9  +  1704    php.script.stringToPhp
      [java]   2.2%    48  +     0    com.caucho.quercus.env.LargeStringBuilderValue.append
@@ -16,8 +17,6 @@
      [java]   1.1%    14  +     9    test_2_php$.dec2roman$1
 }}}
 
- * When run with parms [100 100]... The scala version is 3.2x slower than the PHP.
- * 34% of time is spent in php.script.stringToPhp
 
 = Test 1 (slow): PI Digit Generator =
 
