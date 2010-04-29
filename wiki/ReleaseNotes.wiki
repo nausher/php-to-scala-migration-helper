@@ -3,7 +3,9 @@
 
 = Introduction =
 
-Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) is now fully functional. That means, successful fully automated conversion of test_1.php to test_1.scala, and successful execution of test_1.scala with the equivalent results as the original PHP code! The primary goal of producing clean, readable Scala code has been met.  The secondary goal of high performance is currently held up by a surprising problem in our benchmark (see PerformanceBenchmarks for details). The tertiary goal of PHP compatibility remains surprisingly intact (using reflection to dynamically resolve objects makes it possible to support "duck-typing" and untyped references).
+Yes, it works! The test_1 (computation of digits of PI - from the Computer Benchmarks Game) and test_2 (roman numeral conversion) are now fully functional. That means, successful fully automated conversion of test_N.php to test_N.scala, and successful execution of test_N.scala with the equivalent results as the original PHP code! 
+
+The primary goal of producing clean, readable Scala code has been met.  The secondary goal of high performance is on track, with some caveats (see PerformanceBenchmarks for details). The tertiary goal of PHP compatibility remains surprisingly intact: using reflection to dynamically resolve objects makes it possible to support "duck-typing", untyped references, and essentially all other dynamic features of PHP.
 
 ==Features planned for future releases==
  * Pretty-print (auto-indent) the Scala output
@@ -15,14 +17,14 @@ Yes, it works! The test_1 (computation of digits of PI - from the Computer Bench
  * Still need an overall strategy and details for dealing with "large" applications (multiple PHP scripts, such as in a web app).
  * Port the build/test scripts (mklib.sh, runtests.sh) to Scala so they can run on Windows
 
-== Upcoming features in v0.5 ==
+==New Features in v0.5 (2010-04-27)==
  * Ternary operator (?:) converts to |?
- * Fuller support for arrays, including type inference, foreach(...as...){} and constructors
- * Reintroduced '$' in variable names, to avoid namespace pollution (and clash with reserved words)
- * New testcase (test_2, a roman numeral generator)
- * New operator := for assignment in while loop condition
+ * Fuller support for arrays, including type inference, foreach(...as...){} and constructor syntax
+ * New testcase (test_2, a roman numeral generator) - executes successfully!
+ * Parser handling for assignment in while loop condition
  * Specific patches for str_replace, isset.
  * String concatenation operators +& and +=& (like PHP's . and .= )
+ * New and improved execution speed! (see PerformanceBenchmarks)
 
 ==New Features in v0.4 (2010-04-22)==
  * Success! This is the first release where the PI Digit Generator (test_1) works!
