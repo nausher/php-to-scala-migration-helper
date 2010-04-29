@@ -1,0 +1,14 @@
+#labels Phase-Design
+=Key Differences=
+
+A few key points about php-to-scala:
+
+ * This is NOT intended as a compiler to make the PHP code "run faster". It is intended to make the PHP code "go away". This is for people who've reached the limits of the PHP "culture" itself (beyond just the language, but the types of things that the PHP language and tools encourage) and want to get rid of it ASAP. Any improvement in speed is just a welcome side-effect.
+ * The project's priorities, on order of importance are 1) The output must be maintainable code which enables the original PHP code to be thrown away; 2) The generated code should run fast; and 3) PHP language features and semantics should be honored as closely as possible, with preference given to static over dynamic constructs.
+ * That means: The output will not be made less readable in order to gain speed or full compatibility with PHP semantics. Dynamic features will not be supported if they cause non-dynamic code to become uglier or slower. Dynamic features and semantics that don't interfere with the first two goals should be fully supported.
+
+=Direct Comparison to Other Tools=
+None of the tools currently available have #1 above as their primary goal.
+ * PHC, Raven, and Roadsend have PHP Compatibility and Performance as co-highest priorities, maintainable source code output is not at all a goal, and is in fact very bad. These compilers are great for people who are happy with the PHP "culture" and just want their code to run faster, while committing themselves even more to a long-term PHP environment.
+ * Hip-Hop has Performance as its highest priority, at the cost of compatibility (e.g. many dynamic language features are not supported) and lack of usable output (the C++ output is an unmaintainable mess). Great for people who are skeptical of PHP, don't care for PHP dynamic language features, and need their code to run a lot faster.
+ * Quercus is focused on PHP compatibility and long-term co-existence of PHP code alongside Java. Quercus does not produce any translated source code. On the other hand, the Quercus run-time library is a fairly complete implementation of PHP built-in functions in pure Java, and we intend to re-use the library sources in this project.
