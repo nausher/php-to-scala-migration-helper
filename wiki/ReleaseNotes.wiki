@@ -17,6 +17,9 @@ The primary goal of producing clean, readable Scala code has been met.  The seco
  * Still need an overall strategy and details for dealing with "large" applications (multiple PHP scripts, such as in a web app).
  * Port the build/test scripts (mklib.sh, runtests.sh) to Scala so they can run on Windows
 
+==New Features in v0.6 (2010-04-28)==
+ * This was a performance-focused release. The roman number generator (test_2) is now 3.4x FASTER in the generated Scala versus the original PHP. 
+
 ==New Features in v0.5 (2010-04-27)==
  * Ternary operator (?:) converts to |?
  * Fuller support for arrays, including type inference, foreach(...as...){} and constructor syntax
