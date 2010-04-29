@@ -1,7 +1,7 @@
 #labels Featured,Phase-Support
 # input and output examples
 
-Here's the first example: test_2.php was the input script, test_2.scala is the converted output. The converted script runs 3.4x faster than the original PHP. The converted script is shown without modification except for indentation provided by IntelliJ IDEA 9.0.1. Please note that to compile and run the Scala code, you need php-scala.jar and resin.jar, both of which are included in the download. The jars provide the PHP runtime library (over 1,000 builtin functions).
+Here's the first example: test_2.php was the input script, test_2.scala is the converted output. The converted script runs 3.4x faster than the original PHP. The converted script is shown without modification except for indentation provided by IntelliJ IDEA 9.0.1. Please note that to compile and run the Scala code, you need php-scala.jar and resin.jar, both of which are included in the download. The jars provide the PHP runtime library (over 1,000 builtin functions). This example is included in the release tarball.
 
 = Example 1: Roman Number conversion
 
