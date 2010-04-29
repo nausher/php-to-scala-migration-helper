@@ -21,6 +21,9 @@ Scala time distribution:
      [java]   3.2%     0  +    23    java.lang.StringBuffer.toString
 }}}
 
+The profiler output (above) indicates much of the time is spent in "wasteful" string conversions.
+
+That means it's fairly easy to extract even more performance from the converted code, by changing variable declarations to Int, Double, and String (in place of the dynamic "ref" abstract class type used by default for all variables) where appropriate.
 
 = Benchmark #1 (slow): PI Digit Generator =
 
