@@ -78,7 +78,7 @@ The `.` and `.=` are mapped to `+&` and `+&=` respectively. Suggestions for a be
 =Number Arithmetic Semantics=
 PHP is notorious for its "flexible" numeric type which automatically expands from integer to double as needed. Scala on the other hand is stuck to more traditional Ints, Longs, and Doubles. 
 
-The solution here is to let Quercus handle the number semantics. It's all done within the `NumberValue` hierarchy which includes subclasses `LongValue` and `DoubleValue`. The performance does not seem to suffer from this. 
+The solution here is to let Quercus handle the number semantics. It's all done within the `NumberValue` hierarchy which includes subclasses `LongValue` and `DoubleValue`. The performance does not seem to suffer from this. Scala's implicit conversions and operator overloading makes it all transparent to the developer: an expression like `x = y + z` looks the same regardless of whether the variables involved are Ints, Doubles, or Quercus NumberValues.
 
 The Scala developer can later substitute `Int` and `Double` where appropriate, such as to make the code clearer, or slightly faster.
 
