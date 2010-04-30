@@ -3,6 +3,12 @@
 
 Below is a description of the some of the more interesting transformations that are performed in the conversion from PHP to Scala.
 
+=PHP Built-In Functions=
+
+PHP has a standard library with thousands of built-in functions and extensions. Luckily for us, an Open Source Java implementation of those functions has existed for some time - as a feature known as Quercus buried inside the Caucho Resin application server. 
+
+php-to-scala is currently bundled with version 4.0.6 of the Quercus/Resin Jars. At build time, a script (`mklib.sh`) scans the Quercus source to produce a more transparent façade to the Quercus libraries: Every PHP function is automatically in scope for subclasses of `php.script` which is defined in `php.scala`. This is all then packaged into `php-scala.jar`.
+
 =`for` loop=
 
 Scala does not have a traditional `for` loop. 
@@ -41,3 +47,25 @@ def f(obj: SomeClass) {
 }
 }}}
 The `~&` works for class functions. For class variables, the dynamic resolution operator is `~>`. We have to use `~>` instead of the more natural `->` here only because of operator precedence.
+
+=Scala Constructors=
+
+Scala is notorious for its restrictions on what constructors may be defined on a class. 
+
+The work-around for the converted PHP code is rather trivial: we just don't generate Scala constructors! Instead, every Scala class is given an empty constructor, and the PHP constructor is translated to a `__construct` method (that is literally the name of the method).
+
+So, this PHP code:
+{{{
+class Point {
+  function Point($x,$y) { ... }
+}
+$p = new Point(1,2);
+}}}
+is translated to this Scala code:
+{{{
+class Point {
+  def __construct(x: ref, y: ref) { ... }
+}
+p = new Point __construct(1,2);
+}}}
+It looks a bit strange at first but is still quite bearable. The developer can always come back at a later time (after the PHP code has been thrown away for good) and change the `__construct` to an actual constructor. One major advantage of a static language like Scala is, that the developer can rely on the Scala compiler (or a good IDE) to point out all the references that need to be updated. The developer does not have to run the application to discover where all the errors are.
