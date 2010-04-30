@@ -1,0 +1,43 @@
+#summary Feature-by-Feature Overview
+#labels Featured,Phase-Design
+
+Below is a description of the some of the more interesting transformations that are performed in the conversion from PHP to Scala.
+
+=`for` loop=
+
+Scala does not have a traditional `for` loop. 
+
+The solution is to rewrite the `for` into a `while` loop: `for(E;F;G){H}` becomes `E; while(F) {H; G}`. 
+
+In a future release this will be re-implemented using higher-order function as `for_loop(E,F,G){H}`.
+
+=Ternary Operator=
+
+Scala lacks a traditional ternary operator - `?:`. 
+
+The solution, which preserves the overall "look and feel" of a ternary operator, is the `?|` function, defined in `php.scala`, which takes a `Boolean` on the left and a function on the right. The expression `E ? F : G` becomes `E ?| {if(_) F else G}`
+
+Although a simple `if(E) F else G` might seem like a simpler alternative, that would have required a much more complex transformation algorithm.
+
+=Duck Typing=
+In PHP, it is possible to reference functions and members on an object of an unknown type. For instance, consider this PHP code:
+{{{
+function f($obj) {
+  $obj->doSomething(123);
+}
+}}}
+In this case, the type of `$obj` is unknown. The `doSomething()` method is only resolved at run-time. 
+
+The Scala solution is actually rather simple. We define a dynamic resolution operator, `~&`, which uses Java reflection to resolve the method. So the Scala code becomes:
+{{{
+def f(obj: ref) {
+  obj~&doSomething->(123);
+}
+}}}
+It looks slightly uglier than the PHP, but not too bad really. The developer can always clean-up the code later once the actual type is known:
+{{{
+def f(obj: SomeClass) {
+  obj.doSomething(123)
+}
+}}}
+The `~&` works for class functions. For class variables, the dynamic resolution operator is `~>`. We have to use `~>` instead of the more natural `->` here only because of operator precedence.
