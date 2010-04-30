@@ -7,7 +7,9 @@ Below is a description of the some of the more interesting transformations that 
 
 PHP has a standard library with thousands of built-in functions and extensions. Luckily for us, an Open Source Java implementation of those functions has existed for some time - as a feature known as Quercus buried inside the Caucho Resin application server. 
 
-php-to-scala is currently bundled with version 4.0.6 of the Quercus/Resin Jars. At build time, a script (`mklib.sh`) scans the Quercus source to produce a more transparent façade to the Quercus libraries: Every PHP function is automatically in scope for subclasses of `php.script` which is defined in `php.scala`. This is all then packaged into `php-scala.jar`.
+php-to-scala is currently bundled with version 4.0.6 of the Quercus/Resin Jars. At build time, a script (`mklib.sh`) scans the Quercus source to produce a more transparent façade to the Quercus libraries: Every PHP function is automatically in scope for subclasses of `php.script` which is defined in `php.scala`. This is all then packaged into `php-scala.jar`. 
+
+The functions are made available directly by name and with the same parameter signatures in the converted Scala code as in the original PHP script.
 
 =`for` loop=
 
@@ -37,7 +39,7 @@ In this case, the type of `$obj` is unknown. The `doSomething()` method is only 
 The Scala solution is actually rather simple. We define a dynamic resolution operator, `~&`, which uses Java reflection to resolve the method. So the Scala code becomes:
 {{{
 def f(obj: ref) {
-  obj~&doSomething->(123);
+  obj~&'doSomething->(123);
 }
 }}}
 It looks slightly uglier than the PHP, but not too bad really. The developer can always clean-up the code later once the actual type is known:
@@ -69,3 +71,19 @@ class Point {
 p = new Point __construct(1,2);
 }}}
 It looks a bit strange at first but is still quite bearable. The developer can always come back at a later time (after the PHP code has been thrown away for good) and change the `__construct` to an actual constructor. One major advantage of a static language like Scala is, that the developer can rely on the Scala compiler (or a good IDE) to point out all the references that need to be updated. The developer does not have to run the application to discover where all the errors are.
+
+=String Concatenation=
+The `.` and `.=` are mapped to `+&` and `+&=` respectively. Suggestions for a better choice of symbol would be welcome.
+
+=Number Arithmetic Semantics=
+PHP is notorious for its "flexible" numeric type which automatically expands from integer to double as needed. Scala on the other hand is stuck to more traditional Ints, Longs, and Doubles. 
+
+The solution here is to let Quercus handle the number semantics. It's all done within the `NumberValue` hierarchy which includes subclasses `LongValue` and `DoubleValue`. The performance does not seem to suffer from this. 
+
+The Scala developer can later substitute `Int` and `Double` where appropriate, such as to make the code clearer, or slightly faster.
+
+=Inline HTML=
+These are handled as Scala triple-quoted strings. Not a lot of testing done yet with this.
+
+=eval()=
+Quercus has its own PHP parser and interpreter (in Java), which includes full support for `eval`. This just hasn't been integrated or tested with php-to-scala yet, but it should work with minimal effort. 
