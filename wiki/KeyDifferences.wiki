@@ -1,5 +1,5 @@
+#summary A few key points about php-to-scala:
 #labels Phase-Requirements
-# summary A few key points about php-to-scala:
 
  * This is NOT intended as a compiler to make the PHP code "run faster". It is intended to make the PHP code "go away". This is for people who've reached the limits of the PHP "culture" itself (beyond just the language, but the types of things that the PHP language and tools encourage) and want to get rid of it ASAP. Any improvement in speed is just a welcome side-effect.
  * The project's priorities, on order of importance are 1) The output must be maintainable code which enables the original PHP code to be thrown away; 2) The generated code should run fast; and 3) PHP language features and semantics should be honored as closely as possible, with preference given to static over dynamic constructs.
