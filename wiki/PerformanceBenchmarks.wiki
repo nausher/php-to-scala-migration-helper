@@ -52,4 +52,4 @@ These are the results from -Xprof (with -server and 300 digits):
  * Due to the relative short run, another 3% or so is spent on class-loading.
  * That leaves about 5% of time to "other stuff".
 
-The bottomline: It should be reasonable to expect other benchmarks will be significantly faster - potentially 20x to 50x faster, making php-to-scala generated Scala code at least as fast as PHP, and possibly 2x to 3x faster.
+The bottomline: This benchmark test should be ignored, unless you're one of the few people who actually need Big Integer in your application. This is actually a prime example of a [http://shootout.alioth.debian.org/flawed-benchmarks.php general problem with benchmarks].
