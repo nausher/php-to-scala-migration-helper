@@ -1,0 +1,6 @@
+#summary News
+#labels Phase-Support
+= News =
+
+== A new fork on github ==
+*5/25/2012* - The project as been forked on github by user kbinani. I welcome the significant contributions made there, including Unit Tests and several enhancements to the converter itself. I will be looking to merge the changes when at some point I decide to do some work on this again.
