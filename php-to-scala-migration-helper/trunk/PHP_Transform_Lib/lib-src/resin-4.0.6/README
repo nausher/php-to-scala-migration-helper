@@ -1,0 +1,3 @@
+
+The 'modules' folder constains only the minimal necessary Quercus PHP run-time,
+most of the rest of the Resin appserver stuff has been deleted.
