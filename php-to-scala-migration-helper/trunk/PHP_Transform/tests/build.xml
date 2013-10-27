@@ -1,0 +1,47 @@
+<project name="php-to-scala tests" basedir="." default="profiler">
+	
+    <property name="scala.home" value="/usr/share/scala" />
+
+	<path id="libs">
+        <pathelement location="../lib/quercus.jar"/>
+        <pathelement location="../lib/javaee-16.jar"/>
+	    <pathelement location="../lib/php-scala.jar"/>
+	</path>
+
+    <path id="scala">
+        <pathelement location="${scala.home}/lib/scala-compiler.jar" />
+        <pathelement location="${scala.home}/lib/scala-library.jar" />
+    </path>
+
+	<taskdef resource="scala/tools/ant/antlib.xml">
+		<classpath refid="scala"/>
+    </taskdef>
+	
+        <target name="clean">
+                <delete dir="bin" />
+        </target>
+
+	<target name="profiler">
+		<java classpathref="libs" classname="test_1_php" fork="yes">
+			<arg value="250"/>
+			<jvmarg value="-server"/>
+			<jvmarg value="-Xprof"/>
+			<classpath refid="libs"/>
+			<classpath refid="scala"/>
+			<classpath path="bin"/>
+		</java>
+	</target>
+
+	<target name="profiler2">
+		<java classpathref="libs" classname="test_2_php" fork="yes">
+			<arg value="5000"/>
+			<arg value="100"/>
+			<jvmarg value="-server"/>
+			<jvmarg value="-Xprof"/>
+			<classpath refid="libs"/>
+			<classpath refid="scala"/>
+			<classpath path="bin"/>
+		</java>
+	</target>
+
+</project> 

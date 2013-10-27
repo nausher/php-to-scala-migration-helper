@@ -1,0 +1,943 @@
+T_OPEN_TAG: '<?'
+T_WHITESPACE: ' '
+T_COMMENT: '/* The Great Computer Language Shootout\n   http://shootout.alioth.debian.org/\n   contributed by Isaac Gouy\n   php -q pidigits.php 27\n*/'
+T_WHITESPACE: '\n'
+T_CLASS: 'class'
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+T_WHITESPACE: ' '
+{
+T_WHITESPACE: '\n   '
+T_VAR: 'var'
+T_WHITESPACE: ' '
+T_VARIABLE: '$q'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$r'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$s'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$t'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$k'
+;
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+(
+T_VARIABLE: '$q'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$r'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$s'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$t'
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$q'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$r'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$s'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$t'
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Unity'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_NEW: 'new'
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+(
+T_CONSTANT_ENCAPSED_STRING: '"1"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"1"'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Zero'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_NEW: 'new'
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+(
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Compose'
+(
+T_VARIABLE: '$a'
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$qq'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$qrrt'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcadd'
+(
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+)
+,
+T_WHITESPACE: ' '
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+)
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$sqts'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcadd'
+(
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+)
+,
+T_WHITESPACE: ' '
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+)
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$srtt'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcadd'
+(
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+)
+,
+T_WHITESPACE: ' '
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$a'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+)
+)
+;
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_NEW: 'new'
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+(
+T_VARIABLE: '$qq'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$qrrt'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$sqts'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$srtt'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Extract'
+(
+T_VARIABLE: '$j'
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$bigj'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'strval'
+(
+T_VARIABLE: '$j'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$qjr'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcadd'
+(
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$bigj'
+)
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$sjt'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcadd'
+(
+T_STRING: 'bcmul'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$bigj'
+)
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$d'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'bcdiv'
+(
+T_VARIABLE: '$qjr'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$sjt'
+)
+;
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_STRING: 'floor'
+(
+T_VARIABLE: '$d'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Next'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'k'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'k'
+T_WHITESPACE: ' '
++
+T_WHITESPACE: ' '
+T_LNUMBER: '1'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'strval'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'k'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'strval'
+(
+T_LNUMBER: '4'
+*
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'k'
+T_WHITESPACE: ' '
++
+T_WHITESPACE: ' '
+T_LNUMBER: '2'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'strval'
+(
+T_LNUMBER: '2'
+*
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'k'
+T_WHITESPACE: ' '
++
+T_WHITESPACE: ' '
+T_LNUMBER: '1'
+)
+;
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n'
+}
+T_WHITESPACE: '\n'
+T_CLASS: 'class'
+T_WHITESPACE: ' '
+T_STRING: 'PiDigitStream'
+T_WHITESPACE: ' '
+{
+T_WHITESPACE: '\n   '
+T_VAR: 'var'
+T_WHITESPACE: ' '
+T_VARIABLE: '$z'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$x'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$inverse'
+;
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'PiDigitStream'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+T_DOUBLE_COLON: '::'
+T_STRING: 'Unity'
+(
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'x'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+T_DOUBLE_COLON: '::'
+T_STRING: 'Zero'
+(
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'inverse'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'Transformation'
+T_DOUBLE_COLON: '::'
+T_STRING: 'Zero'
+(
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Produce'
+(
+T_VARIABLE: '$j'
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'inverse'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'q'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"10"'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'r'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'strval'
+(
+-
+T_LNUMBER: '10'
+*
+T_VARIABLE: '$j'
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 's'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"0"'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 't'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '"1"'
+;
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$i'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Compose'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Consume'
+(
+T_VARIABLE: '$a'
+)
+{
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Compose'
+(
+T_VARIABLE: '$a'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Digit'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Extract'
+(
+T_LNUMBER: '3'
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'IsSafe'
+(
+T_VARIABLE: '$j'
+)
+{
+T_WHITESPACE: '\n      '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+T_WHITESPACE: ' '
+T_IS_EQUAL: '=='
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Extract'
+(
+T_LNUMBER: '4'
+)
+)
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'Next'
+(
+)
+{
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$y'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Digit'
+(
+)
+;
+T_WHITESPACE: '\n      '
+T_IF: 'if'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'IsSafe'
+(
+T_VARIABLE: '$y'
+)
+)
+{
+T_WHITESPACE: '\n         '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Produce'
+(
+T_VARIABLE: '$y'
+)
+;
+T_WHITESPACE: '\n         '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$y'
+;
+T_WHITESPACE: '\n      '
+}
+T_WHITESPACE: ' '
+T_ELSE: 'else'
+T_WHITESPACE: ' '
+{
+T_WHITESPACE: '\n         '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'z'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Consume'
+(
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'x'
+T_WHITESPACE: ' '
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Next'
+(
+)
+)
+;
+T_WHITESPACE: '\n         '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$this'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Next'
+(
+)
+;
+T_WHITESPACE: '\n      '
+}
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n'
+}
+T_WHITESPACE: '\n'
+T_VARIABLE: '$n'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$argv'
+[
+T_LNUMBER: '1'
+]
+;
+T_WHITESPACE: '\n'
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+;
+T_WHITESPACE: '\n'
+T_VARIABLE: '$length'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_LNUMBER: '10'
+;
+T_WHITESPACE: '\n'
+T_VARIABLE: '$pidigit'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_NEW: 'new'
+T_WHITESPACE: ' '
+T_STRING: 'PiDigitStream'
+;
+T_WHITESPACE: '\n'
+T_WHILE: 'while'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$n'
+T_WHITESPACE: ' '
+>
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+)
+{
+T_WHITESPACE: '\n   '
+T_IF: 'if'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$n'
+T_WHITESPACE: ' '
+<
+T_WHITESPACE: ' '
+T_VARIABLE: '$length'
+)
+{
+T_WHITESPACE: '\n      '
+T_FOR: 'for'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$j'
+=
+T_LNUMBER: '0'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+<
+T_VARIABLE: '$n'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+T_INC: '++'
+)
+T_WHITESPACE: ' '
+T_STRING: 'printf'
+(
+T_CONSTANT_ENCAPSED_STRING: '"%d"'
+,
+T_VARIABLE: '$pidigit'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Next'
+(
+)
+)
+;
+T_WHITESPACE: '\n      '
+T_FOR: 'for'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$j'
+=
+T_VARIABLE: '$n'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+<
+T_VARIABLE: '$length'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+T_INC: '++'
+)
+T_WHITESPACE: '  '
+T_PRINT: 'print'
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: '" "'
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+T_PLUS_EQUAL: '+='
+T_WHITESPACE: ' '
+T_VARIABLE: '$n'
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: ' '
+T_ELSE: 'else'
+T_WHITESPACE: ' '
+{
+T_WHITESPACE: '\n      '
+T_FOR: 'for'
+T_WHITESPACE: ' '
+(
+T_VARIABLE: '$j'
+=
+T_LNUMBER: '0'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+<
+T_VARIABLE: '$length'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$j'
+T_INC: '++'
+)
+T_WHITESPACE: ' '
+T_STRING: 'printf'
+(
+T_CONSTANT_ENCAPSED_STRING: '"%d"'
+,
+T_VARIABLE: '$pidigit'
+T_OBJECT_OPERATOR: '->'
+T_STRING: 'Next'
+(
+)
+)
+;
+T_WHITESPACE: '\n      '
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+T_PLUS_EQUAL: '+='
+T_WHITESPACE: ' '
+T_VARIABLE: '$length'
+;
+T_WHITESPACE: '\n   '
+}
+T_WHITESPACE: '\n   '
+T_PRINT: 'print'
+T_WHITESPACE: ' '
+"
+T_ENCAPSED_AND_WHITESPACE: '\t:'
+T_VARIABLE: '$i'
+T_ENCAPSED_AND_WHITESPACE: '\n'
+"
+;
+T_WHITESPACE: '\n   '
+T_VARIABLE: '$n'
+T_WHITESPACE: ' '
+T_MINUS_EQUAL: '-='
+T_WHITESPACE: ' '
+T_VARIABLE: '$length'
+;
+T_WHITESPACE: '\n'
+}
+T_WHITESPACE: '\n'
+T_CLOSE_TAG: '?>\n'
