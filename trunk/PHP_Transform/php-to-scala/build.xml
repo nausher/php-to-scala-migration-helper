@@ -1,0 +1,61 @@
+<project default="jar" basedir=".">
+
+	<property name="scala.home" value="/usr/share/scala" />
+	<property name="shell" value="/bin/sh" />
+
+	<property name="bin" value="${basedir}/bin" />
+	<property name="lib" value="${basedir}/../lib" />
+
+	<path id="build.classpath">
+		<pathelement location="${scala.home}/lib/scala-compiler.jar" />
+		<pathelement location="${scala.home}/lib/scala-library.jar" />
+		<pathelement location="${lib}/quercus.jar"/>
+        <pathelement location="${lib}/javaee-16.jar"/>
+	</path>
+
+	<target name="init">
+		<taskdef resource="scala/tools/ant/antlib.xml">
+			<classpath>
+				<pathelement location="${scala.home}/lib/scala-compiler.jar" />
+				<pathelement location="${scala.home}/lib/scala-library.jar" />
+			</classpath>
+		</taskdef>
+	</target>
+
+	<target name="clean">
+		<delete dir="bin" />
+		<delete file="${lib}/php-scala.jar" />
+	</target>
+
+	<property name="quercus.src" value="../../PHP_Transform_Lib/lib-src" />
+	<available property="quercus.installed" file="${quercus.src}" type="dir" />
+
+	<target name="mklib">
+		<mkdir dir="phplib" />
+		<exec executable="${shell}" output="phplib/phplib.java">
+			<arg value="mklib.sh" />
+		</exec>
+	</target>
+
+	<target name="phplib" if="quercus.installed">
+		<uptodate property="mklib.uptodate" targetfile="phplib/phplib.java">
+			<srcfiles dir="${quercus.src}" includes="*.java" />
+		</uptodate>
+		<antcall target="mklib" />
+	</target>
+
+	<target name="compile" depends="init,phplib">
+		<mkdir dir="${bin}" />
+		<javac srcdir="." destdir="${bin}"  classpathref="build.classpath" />
+		<scalac srcdir="." destdir="${bin}" classpathref="build.classpath">
+			<include name="*.scala"/>
+		</scalac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<mkdir dir="${lib}" />
+		<jar destfile="${lib}/php-scala.jar" basedir="${bin}">
+		</jar>
+	</target>
+
+</project>

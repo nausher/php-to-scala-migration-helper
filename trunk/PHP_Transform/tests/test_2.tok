@@ -1,0 +1,506 @@
+T_OPEN_TAG: '<?php '
+T_WHITESPACE: '\n'
+T_COMMENT: '// adapted from http://www.php.happycodings.com/Algorithms/code33.html\n'
+T_WHITESPACE: '\n'
+T_COMMENT: '// Function that calculates the roman string to the given number: \n'
+T_WHITESPACE: '\n        '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'dec2roman'
+(
+T_VARIABLE: '$f'
+)
+T_WHITESPACE: ' \n        '
+{
+T_WHITESPACE: ' \n            '
+T_COMMENT: '// Return false if either $f is not a real number, $f is bigger than 3999 or $f is lower or equal to 0:         \n'
+T_WHITESPACE: '                '
+T_IF: 'if'
+(
+!
+T_STRING: 'is_numeric'
+(
+T_VARIABLE: '$f'
+)
+T_WHITESPACE: ' '
+T_BOOLEAN_OR: '||'
+T_WHITESPACE: ' '
+T_VARIABLE: '$f'
+T_WHITESPACE: ' '
+>
+T_WHITESPACE: ' '
+T_LNUMBER: '3999'
+T_WHITESPACE: ' '
+T_BOOLEAN_OR: '||'
+T_WHITESPACE: ' '
+T_VARIABLE: '$f'
+T_WHITESPACE: ' '
+T_IS_SMALLER_OR_EQUAL: '<='
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+)
+T_WHITESPACE: ' '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_STRING: 'false'
+;
+T_WHITESPACE: ' \n            '
+T_COMMENT: '// Define the roman figures: \n'
+T_WHITESPACE: '                '
+T_VARIABLE: '$roman'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_ARRAY: 'array'
+(
+T_CONSTANT_ENCAPSED_STRING: ''M''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '1000'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''D''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '500'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''C''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '100'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''L''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '50'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''X''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '10'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''V''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '5'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''I''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '1'
+)
+;
+T_WHITESPACE: ' \n		'
+T_VARIABLE: '$amount'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_ARRAY: 'array'
+(
+)
+;
+T_WHITESPACE: '\n         \n            '
+T_COMMENT: '// Calculate the needed roman figures: \n'
+T_WHITESPACE: '                '
+T_FOREACH: 'foreach'
+(
+T_VARIABLE: '$roman'
+T_WHITESPACE: ' '
+T_AS: 'as'
+T_WHITESPACE: ' '
+T_VARIABLE: '$k'
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+)
+T_WHITESPACE: ' '
+T_IF: 'if'
+(
+(
+T_VARIABLE: '$amount'
+[
+T_VARIABLE: '$k'
+]
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'floor'
+(
+T_VARIABLE: '$f'
+T_WHITESPACE: ' '
+/
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+)
+)
+T_WHITESPACE: ' '
+>
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+)
+T_WHITESPACE: ' '
+T_VARIABLE: '$f'
+T_WHITESPACE: ' '
+T_MINUS_EQUAL: '-='
+T_WHITESPACE: ' '
+T_VARIABLE: '$amount'
+[
+T_VARIABLE: '$k'
+]
+T_WHITESPACE: ' '
+*
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+;
+T_WHITESPACE: ' \n             \n            '
+T_COMMENT: '// Build the string: \n'
+T_WHITESPACE: '                '
+T_VARIABLE: '$retval'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''''
+;
+T_WHITESPACE: ' \n                '
+T_FOREACH: 'foreach'
+(
+T_VARIABLE: '$amount'
+T_WHITESPACE: ' '
+T_AS: 'as'
+T_WHITESPACE: ' '
+T_VARIABLE: '$k'
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+)
+T_WHITESPACE: ' \n                '
+{
+T_WHITESPACE: ' \n                    '
+T_VARIABLE: '$retval'
+T_WHITESPACE: ' '
+T_CONCAT_EQUAL: '.='
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+T_WHITESPACE: ' '
+T_IS_SMALLER_OR_EQUAL: '<='
+T_WHITESPACE: ' '
+T_LNUMBER: '3'
+T_WHITESPACE: ' '
+?
+T_WHITESPACE: ' '
+T_STRING: 'str_repeat'
+(
+T_VARIABLE: '$k'
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$v'
+)
+T_WHITESPACE: ' '
+:
+T_WHITESPACE: ' '
+T_VARIABLE: '$k'
+T_WHITESPACE: ' '
+.
+T_WHITESPACE: ' '
+T_VARIABLE: '$old_k'
+;
+T_WHITESPACE: ' \n                    '
+T_VARIABLE: '$old_k'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$k'
+;
+T_WHITESPACE: '                 \n                '
+}
+T_WHITESPACE: ' \n             \n            '
+T_COMMENT: '// Replace some spacial cases and return the string: \n'
+T_WHITESPACE: '                '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_STRING: 'str_replace'
+(
+T_ARRAY: 'array'
+(
+T_CONSTANT_ENCAPSED_STRING: ''VIV''
+,
+T_CONSTANT_ENCAPSED_STRING: ''LXL''
+,
+T_CONSTANT_ENCAPSED_STRING: ''DCD''
+)
+,
+T_WHITESPACE: ' '
+T_ARRAY: 'array'
+(
+T_CONSTANT_ENCAPSED_STRING: ''IX''
+,
+T_CONSTANT_ENCAPSED_STRING: ''XC''
+,
+T_CONSTANT_ENCAPSED_STRING: ''CM''
+)
+,
+T_WHITESPACE: ' '
+T_VARIABLE: '$retval'
+)
+;
+T_WHITESPACE: ' \n        '
+}
+T_WHITESPACE: ' \n     \n    '
+T_COMMENT: '// Function to get the decimal value of a roman string: \n'
+T_WHITESPACE: '        '
+T_FUNCTION: 'function'
+T_WHITESPACE: ' '
+T_STRING: 'roman2dec'
+(
+T_VARIABLE: '$str'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''''
+)
+T_WHITESPACE: ' \n        '
+{
+T_WHITESPACE: ' \n            '
+T_COMMENT: '// Return false if not at least one letter is in the string: \n'
+T_WHITESPACE: '                '
+T_IF: 'if'
+(
+T_STRING: 'is_numeric'
+(
+T_VARIABLE: '$str'
+)
+)
+T_WHITESPACE: ' '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_STRING: 'false'
+;
+T_WHITESPACE: ' \n         \n            '
+T_COMMENT: '// Define the roman figures: \n'
+T_WHITESPACE: '                '
+T_VARIABLE: '$roman'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_ARRAY: 'array'
+(
+T_CONSTANT_ENCAPSED_STRING: ''M''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '1000'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''D''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '500'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''C''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '100'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''L''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '50'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''X''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '10'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''V''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '5'
+,
+T_WHITESPACE: ' '
+T_CONSTANT_ENCAPSED_STRING: ''I''
+T_WHITESPACE: ' '
+T_DOUBLE_ARROW: '=>'
+T_WHITESPACE: ' '
+T_LNUMBER: '1'
+)
+;
+T_WHITESPACE: ' \n         \n            '
+T_COMMENT: '// Convert the string to an array of roman values: \n'
+T_WHITESPACE: '                '
+T_FOR: 'for'
+(
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$i'
+T_WHITESPACE: ' '
+<
+T_WHITESPACE: ' '
+T_STRING: 'strlen'
+(
+T_VARIABLE: '$str'
+)
+;
+T_WHITESPACE: ' '
+T_VARIABLE: '$i'
+T_INC: '++'
+)
+T_WHITESPACE: ' '
+T_IF: 'if'
+(
+T_ISSET: 'isset'
+(
+T_VARIABLE: '$roman'
+[
+T_STRING: 'strtoupper'
+(
+T_VARIABLE: '$str'
+[
+T_VARIABLE: '$i'
+]
+)
+]
+)
+)
+T_WHITESPACE: ' '
+T_VARIABLE: '$values'
+[
+]
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_VARIABLE: '$roman'
+[
+T_STRING: 'strtoupper'
+(
+T_VARIABLE: '$str'
+[
+T_VARIABLE: '$i'
+]
+)
+]
+;
+T_WHITESPACE: ' \n             \n            '
+T_COMMENT: '// Calculate the sum of that array: \n'
+T_WHITESPACE: '                '
+T_VARIABLE: '$sum'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+;
+T_WHITESPACE: ' \n                '
+T_WHILE: 'while'
+(
+T_VARIABLE: '$current'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'current'
+(
+T_VARIABLE: '$values'
+)
+)
+T_WHITESPACE: ' \n                '
+{
+T_WHITESPACE: ' \n                    '
+T_VARIABLE: '$next'
+T_WHITESPACE: ' '
+=
+T_WHITESPACE: ' '
+T_STRING: 'next'
+(
+T_VARIABLE: '$values'
+)
+;
+T_WHITESPACE: ' \n                    '
+T_VARIABLE: '$next'
+T_WHITESPACE: ' '
+>
+T_WHITESPACE: ' '
+T_VARIABLE: '$current'
+T_WHITESPACE: ' '
+?
+T_WHITESPACE: ' '
+T_VARIABLE: '$sum'
+T_WHITESPACE: ' '
+T_PLUS_EQUAL: '+='
+T_WHITESPACE: ' '
+T_VARIABLE: '$next'
+T_WHITESPACE: ' '
+-
+T_WHITESPACE: ' '
+T_VARIABLE: '$current'
+T_WHITESPACE: ' '
++
+T_WHITESPACE: ' '
+T_LNUMBER: '0'
+T_WHITESPACE: ' '
+*
+T_WHITESPACE: ' '
+T_STRING: 'next'
+(
+T_VARIABLE: '$values'
+)
+T_WHITESPACE: ' '
+:
+T_WHITESPACE: ' '
+T_VARIABLE: '$sum'
+T_WHITESPACE: ' '
+T_PLUS_EQUAL: '+='
+T_WHITESPACE: ' '
+T_VARIABLE: '$current'
+;
+T_WHITESPACE: ' \n                '
+}
+T_WHITESPACE: ' \n                 \n            '
+T_COMMENT: '// Return the value: \n'
+T_WHITESPACE: '                '
+T_RETURN: 'return'
+T_WHITESPACE: ' '
+T_VARIABLE: '$sum'
+;
+T_WHITESPACE: ' \n        '
+}
+T_WHITESPACE: ' \n	'
+T_PRINT: 'print'
+(
+T_STRING: 'dec2roman'
+(
+T_VARIABLE: '$argv'
+[
+T_LNUMBER: '1'
+]
+)
+)
+;
+T_WHITESPACE: '\n         \n'
+T_CLOSE_TAG: '?>\n'
+T_INLINE_HTML: '\n'
